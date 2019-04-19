@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>componente</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+      }
+
+      a {
+        outline: none !important;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .groups {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        width: 1000px;
+        margin: 0 auto;
+      }
+
+      .group {
+        flex: 1 1 auto;
+        max-width: 215px;
+      }
+
+      .group-title {
+        font-size: 13px;
+        font-weight: 100;
+        text-transform: uppercase;
+        padding: 7px 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      .group-title:before {
+        content: '';
+        display: block;
+        border-top: 1px solid black;
+        width: 100%;
+        margin-bottom: 7px;
+      }
+
+      .group-links {
+        display: flex;
+        font-family: Courier New;
+        justify-content: space-evenly;
+        padding: 17px 0;
+        border-top: 1px solid black;
+        flex: 1 1 40px;
+        flex-wrap: wrap;
+      }
+
+      .group-link {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-width: 60px;
+        padding: 10px 5px;
+      }
+
+      .group-link-title {
+        margin-top: 5px;
+        font-size: 0.7rem;
+      }
+
+      .group-link-image {
+        filter: grayscale(40%);
+        width: 35px;
+        height: 35px;
+        border-radius: 25%;
+      }
+
+      .info {
+        font-family: Courier New;
+      }
+
+      .info-contact {
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        color: #f8f8f8;
+        background-color: #444;
+        width: 100%;
+        padding: 20px calc((100vw - 1000px) / 2);
+      }
+
+      .info-copy {
+        font-size: 10px;
+        text-align: right;
+        padding: 20px calc((100vw - 1000px) / 2);
+        color: #999;
+        background-color: #343434;
+        width: 100%;
+      }
+
+      .modal-container {
+        display: none;
+        position: fixed;
+        padding: 20px calc((100vw - 1000px) / 2) 60px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.85);
+      }
+
+      .modal {
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .modal-actions button {
+        height: 40px;
+        width: 100px;
+        background-color: #444;
+        border: none;
+        outline: none;
+        color: #f8f8f8;
+        text-transform: uppercase;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="groups">
+      <li class="group">
+        <h3 class="group-title">profile</h3>
+        <nav class="group-links">
+          <a class="group-link" target="_blank" href="https://br.linkedin.com/in/rafael-kendrik">
+            <img class="group-link-image" src="linkedin.png">
+            <span class="group-link-title">linkedin</span>
+          </a>
+          <a class="group-link" target="_blank" href="https://github.com/rafaelkendrik">
+            <img class="group-link-image" src="github.png">
+            <span class="group-link-title">github</span>
+          </a>
+          <a class="group-link" href="#modal" onclick="document.querySelectorAll('.modal-container')[0].style.display = 'block'">
+            <img class="group-link-image" src="curriculum.png">
+            <span class="group-link-title">CV</span>
+          </a>
+        </nav>
+      </li>
+      <li class="group">
+        <h3 class="group-title">founder</h3>
+        <nav class="group-links">
+          <a class="group-link" href="#agenciark">
+            <img class="group-link-image" src="linkedin.png">
+            <span class="group-link-title">agênciark</span>
+          </a>
+          <a class="group-link" href="#noparana">
+            <img class="group-link-image" src="linkedin.png">
+            <span class="group-link-title">noparaná</span>
+          </a>
+        </nav>
+      </li>
+      <li class="group">
+        <h3 class="group-title">companies</h3>
+        <nav class="group-links">
+          <a class="group-link" href="#modal">
+            <img class="group-link-image" src="sices.png">
+            <span class="group-link-title">sices</span>
+          </a>
+          <a class="group-link" href="#modal">
+            <img class="group-link-image" src="kolina.png">
+            <span class="group-link-title">kolina</span>
+          </a>
+          <a class="group-link" href="#modal">
+            <img class="group-link-image" src="kolina.png">
+            <span class="group-link-title">k13</span>
+          </a>
+          <a class="group-link" href="#modal">
+            <img class="group-link-image" src="compufacil.jpg">
+            <span class="group-link-title">compufácil</span>
+          </a>
+          <a class="group-link" href="#modal">
+            <img class="group-link-image" src="focus.png">
+            <span class="group-link-title">focus</span>
+          </a>
+        </nav>
+      </li>
+      <li class="group">
+        <h3 class="group-title">contributions</h3>
+        <nav class="group-links">
+          <a class="group-link" target="_blank" href="https://pt.meta.stackoverflow.com/users/30735">
+            <img class="group-link-image" src="so.png">
+            <span class="group-link-title">SOpt</span>
+          </a>
+          <a class="group-link" target="_blank" href="https://github.com/rkendrik-forks">
+            <img class="group-link-image" src="fork.png">
+            <span class="group-link-title">forks</span>
+          </a>
+          <a class="group-link" target="_blank" href="https://github.com/rkendrik-community">
+            <img class="group-link-image" src="community.png">
+            <span class="group-link-title">community</span>
+          </a>
+        </nav>
+      </li>
+    </ul>
+    <footer class="info">
+      <div class="info-contact">
+        <div>
+          <span>rafaelkendrik@gmail.com</span>
+          <br>
+          <span style="margin-top: 7px; display: block">+55 (42) 99822 4867</span>
+        </div>
+        <span>Rafael Kendrik</span>
+      </div>
+      <div class="info-copy">
+        <span>todos os direitos reservados | 2019</span>
+      </div>
+    </footer>
+    <div class="modal-container">
+      <iframe src="curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
+      <div class="modal-actions">
+        <button style="float: right" onclick="document.querySelectorAll('.modal-container')[0].style.display = 'none'">fechar</button>
+      </div>
+    </div>
+  </body>
+</html>
