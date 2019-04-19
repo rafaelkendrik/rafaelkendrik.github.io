@@ -226,7 +226,7 @@
       const serializeLinkToTemplateBind = links => links
         .map((link = {}) => (
           Object.assign(link, handleLink(link.to || link.href)),
-          link.icon = link.icon || `${link.label.toLowerCase()}.png`,
+          link.icon = 'assets/icons/' + (link.icon || `${link.label.toLowerCase()}.png`),
           link
         ))
 
@@ -273,7 +273,7 @@
           disabled: true
         }, {
           label: 'compufácil',
-          icon: 'compufacil.jpg',
+          icon: 'compufacil.png',
           to: '#',
           disabled: true
         }, {
@@ -285,11 +285,10 @@
         name: 'contributions',
         links: serializeLinkToTemplateBind([{
           label: 'SOpt',
-          icon: 'so.png',
+          icon: 'stackoverflow.png',
           to: 'https://pt.stackoverflow.com/users/30735'
         }, {
           label: 'forks',
-          icon: 'fork.png',
           to: 'https://github.com/rkendrik-forks'
         }, {
           label: 'community',
