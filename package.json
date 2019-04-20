@@ -1,0 +1,23 @@
+{
+  "name": "rafaelkendrik.github.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "info.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  },
+  "scripts": {
+    "start": "browser-sync start --server '.' --files '.' --single"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelkendrik/rafaelkendrik.github.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelkendrik/rafaelkendrik.github.com/issues"
+  },
+  "homepage": "https://github.com/rafaelkendrik/rafaelkendrik.github.com#readme"
+}

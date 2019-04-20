@@ -1,9 +1,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Rafael Kendrik</title>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="main.js" type="module"></script>
+
     <style>
       * {
         box-sizing: border-box;
@@ -189,137 +194,9 @@
           <span>{{ info.copy }}</span>
         </div>
       </footer>
-      <div v-show="isModalOpened" class="modal-container">
-        <iframe src="curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
-        <div class="modal-actions">
-          <button style="float: right" v-on:click="closeModal">fechar</button>
-        </div>
-      </div>
+      <Modal>
+        <iframe src="assets/uploads/curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
+      </Modal>
     </div>
-    <script>
-      const CURRENT_YEAR = (new Date()).getFullYear()
-
-      const handleLink = uri => {
-        if (!uri) {
-          throw new Error('Expected prop "to" or "href", both are empty')
-          return
-        }
-
-        const isExternalLink = uri.includes('http')
-
-        if (isExternalLink) {
-          return {
-            is: 'a',
-            href: uri,
-            target: '_blank'
-          }
-        }
-
-        else {
-          return {
-            is: 'router-link',
-            to: uri
-          }
-        }
-      }
-
-      const serializeLinkToTemplateBind = links => links
-        .map((link = {}) => (
-          Object.assign(link, handleLink(link.to || link.href)),
-          link.icon = 'assets/icons/' + (link.icon || `${link.label.toLowerCase()}.png`),
-          link
-        ))
-
-      const info = {
-        mail: 'rafaelkendrik@gmail.com',
-        phone: '+55 (42) 99822 4867',
-        name: 'Rafael Kendrik',
-        copy: `todos os direitos reservados | ${CURRENT_YEAR}`
-      }
-
-      const linkGroups = [{
-        name: 'profile',
-        links: serializeLinkToTemplateBind([{
-          label: 'linkedin',
-          to: 'https://br.linkedin.com/in/rafael-kendrik'
-        }, {
-          label: 'github',
-          to: 'https://github.com/rafaelkendrik'
-        }, {
-          label: 'CV',
-          icon: 'curriculum.png',
-          to: '?modal=curriculum'
-        }])
-      }, {
-        name: 'founder',
-        links: serializeLinkToTemplateBind([{
-          label: 'coming-soon',
-          to: '#',
-          disabled: true
-        }])
-      }, {
-        name: 'companies',
-        links: serializeLinkToTemplateBind([{
-          label: 'sices',
-          to: '#',
-          disabled: true
-        }, {
-          label: 'kolina',
-          to: '#',
-          disabled: true
-        }, {
-          label: 'k13',
-          to: '#',
-          disabled: true
-        }, {
-          label: 'compufácil',
-          icon: 'compufacil.png',
-          to: '#',
-          disabled: true
-        }, {
-          label: 'focus',
-          to: '#',
-          disabled: true
-        }])
-      }, {
-        name: 'contributions',
-        links: serializeLinkToTemplateBind([{
-          label: 'SOpt',
-          icon: 'stackoverflow.png',
-          to: 'https://pt.stackoverflow.com/users/30735'
-        }, {
-          label: 'forks',
-          to: 'https://github.com/rkendrik-forks'
-        }, {
-          label: 'community',
-          to: 'https://github.com/rkendrik-community'
-        }])
-      }]
-
-      const router = new VueRouter({
-        mode: 'history'
-      })
-
-      new Vue({
-        router,
-
-        data: () => ({
-          info,
-          linkGroups
-        }),
-
-        computed: {
-          isModalOpened() {
-            return Boolean(this.$route.query.modal)
-          }
-        },
-
-        methods: {
-          closeModal() {
-            this.$router.back()
-          }
-        }
-      }).$mount('#app')
-    </script>
   </body>
 </html>
