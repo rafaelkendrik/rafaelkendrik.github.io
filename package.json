@@ -17,8 +17,8 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "build": "mkdir docs; cp index.html docs/index.html; cp assets docs/assets -r; webpack",
-    "build:prod": "webpack -p",
+    "build": "./cli/rkendrik-build",
+    "deploy": "./cli/rkendrik-deploy",
     "start": "node server.js",
     "dev": "webpack-dev-server"
   },

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+readonly RKENDRIK_SITE_PATH=/home/dev-career/Projects/rafaelkendrik.github.io
+
+cd $RKENDRIK_SITE_PATH
+
+readonly BUILD_PATH=${RKENDRIK_SITE_PATH}/docs
+
+rm $BUILD_PATH -rf
+mkdir $BUILD_PATH
+
+cp index.html $BUILD_PATH/index.html
+cp assets $BUILD_PATH/assets -r
+
+$RKENDRIK_SITE_PATH/node_modules/.bin/webpack
