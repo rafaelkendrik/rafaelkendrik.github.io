@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+readonly RKENDRIK_SITE_PATH=/home/dev-career/Projects/rafaelkendrik.github.io
+
+cd $RKENDRIK_SITE_PATH
+
+git checkout -b deploy
+git checkout deploy
+
+$RKENDRIK_SITE_PATH/cli/rkendrik-build
+
+git add docs -f && git commit -m "Github Pages Deploy $(date '+%Y-%m-%d %H:%M:%S')"
+git subtree push --prefix docs origin master
+
+git checkout dev
+git branch -D deploy
