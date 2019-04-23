@@ -12,17 +12,33 @@ export default {
   },
 
   render(h) {
+    const iconClose = h(
+      'i',
+      {
+        attrs: {
+          style: `
+            mask: url(assets/icon/minimize.svg) no-repeat center;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-color: #fff;
+            margin-left: 10px;
+          `
+        }
+      }
+    )
+
     const deedClose = h(
       'button',
       {
         attrs: {
-          style: 'float: right'
+          class: 'action-button'
         },
         on: {
           click: this.closeModal
         }
       },
-      ['fechar']
+      ['fechar', iconClose]
     )
 
     const modalDeeds = h(
@@ -32,7 +48,10 @@ export default {
           class: 'modal-actions'
         }
       },
-      [deedClose]
+      [
+        this.$slots.actions,
+        deedClose
+      ]
     )
 
     const modalContainer = h(

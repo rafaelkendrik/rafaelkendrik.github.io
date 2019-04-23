@@ -139,15 +139,20 @@
         height: 100%;
       }
 
-      .modal-actions button {
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .action-button {
         height: 40px;
-        width: 100px;
         background-color: #444;
         border: none;
         outline: none;
         color: #f8f8f8;
         text-transform: uppercase;
-        margin: 10px 0;
+        margin: 10px 0 10px 10px;
+        padding: 0 20px;
         cursor: pointer;
       }
     </style>
@@ -192,6 +197,14 @@
       </footer>
       <Modal>
         <iframe src="assets/uploads/curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
+        <template slot="actions">
+          <a href="assets/uploads/curriculum.pdf" download target="_blank">
+            <button class="action-button">
+              <i style="mask: url(assets/icon/download.svg) no-repeat center; width: 16px; height: 16px; display: inline-block; background-color: #fff; margin-right: 5px;"></i>
+              download
+            </button>
+          </a>
+        </template>
       </Modal>
     </div>
     <script src="main.js" type="application/javascript"></script>
