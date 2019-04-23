@@ -11,12 +11,14 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "css-loader": "^2.1.1",
+    "html-loader": "^0.5.5",
     "url-loader": "^1.1.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
+    "compile": "./cli/rkendri-compile",
     "build": "./cli/rkendrik-build",
     "deploy": "./cli/rkendrik-deploy",
     "start": "node server.js",

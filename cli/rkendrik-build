@@ -9,6 +9,8 @@ readonly BUILD_PATH=${RKENDRIK_SITE_PATH}/docs
 rm $BUILD_PATH -rf
 mkdir $BUILD_PATH
 
+$RKENDRIK_SITE_PATH/cli/rkendrik-compile
+
 cp index.html $BUILD_PATH/index.html
 cp assets $BUILD_PATH/assets -r
 

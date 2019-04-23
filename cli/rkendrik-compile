@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+readonly RKENDRIK_SITE_PATH=/home/dev-career/Projects/rafaelkendrik.github.io
+
+cd $RKENDRIK_SITE_PATH
+
+readonly BUILD_PATH=${RKENDRIK_SITE_PATH}/docs
+
+[ ! -d $BUILD_PATH ] && {
+  mkdir $BUILD_PATH
+}
+
+declare -ar MD_FILES=(
+  self-letter
+)
+
+compile_md() {
+  local file=$1; shift
+
+  local method=POST
+  local content_type='Content-Type: text/plain'
+  local markdown=$(cat data/${file}.md)
+  local url='https://api.github.com/markdown/raw'
+  
+  curl -s \
+    -X "${method}" \
+    -H "${content_type}" \
+    -d "${markdown}" \
+    "${url}" > "${BUILD_PATH}/${file}.html"
+}
+
+for file in ${MD_FILES[@]}; do
+  $(compile_md $file)
+done
