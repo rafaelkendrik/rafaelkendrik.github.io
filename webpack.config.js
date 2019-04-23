@@ -63,7 +63,7 @@ var config = {
   },
 
   resolve: {
-    extensions: ['.html', '.js'],
+    extensions: ['.html', '.js', '.json'],
     alias: {
       vue: 'vue/dist/vue.js'
     }
