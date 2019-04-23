@@ -10,7 +10,7 @@ git checkout deploy
 $RKENDRIK_SITE_PATH/cli/rkendrik-build
 
 git add docs -f && git commit -m "Github Pages Deploy $(date '+%Y-%m-%d %H:%M:%S')"
-git subtree push --prefix docs origin master
+git push origin `git subtree split --prefix docs deploy`:master --force
 
 git checkout dev
 git branch -D deploy
