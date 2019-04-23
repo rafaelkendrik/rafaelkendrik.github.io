@@ -99,29 +99,6 @@
         border-radius: 25%;
       }
 
-      .info {
-        font-family: Courier New;
-      }
-
-      .info-contact {
-        font-size: 12px;
-        display: flex;
-        justify-content: space-between;
-        color: #f8f8f8;
-        background-color: #444;
-        width: 100%;
-        padding: 20px calc((100vw - 1000px) / 2);
-      }
-
-      .info-copy {
-        font-size: 10px;
-        text-align: right;
-        padding: 20px calc((100vw - 1000px) / 2);
-        color: #999;
-        background-color: #343434;
-        width: 100%;
-      }
-
       .modal-container {
         position: fixed;
         padding: 20px calc((100vw - 1000px) / 2) 60px;
@@ -182,19 +159,7 @@
           </nav>
         </li>
       </ul>
-      <footer class="info">
-        <div class="info-contact">
-          <div>
-            <span>{{ info.mail }}</span>
-            <br>
-            <span style="margin-top: 7px; display: block">{{ info.phone }}</span>
-          </div>
-          <span>{{ info.name }}</span>
-        </div>
-        <div class="info-copy">
-          <span>{{ info.copy }}</span>
-        </div>
-      </footer>
+      <Info></Info>
       <Modal>
         <iframe src="assets/uploads/curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
         <template slot="actions">

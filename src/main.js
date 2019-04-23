@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import info from './info.js'
-import linkGroups from './link-groups.js'
+import linkGroups from '../data/link-groups.js'
 
+import Info from './Info.js'
 import Modal from './Modal.js'
 
 Vue.use(VueRouter)
@@ -16,11 +16,11 @@ new Vue({
   router,
 
   components: {
+    Info,
     Modal
   },
 
   data: () => ({
-    info,
     linkGroups
   })
 }).$mount('#app')
