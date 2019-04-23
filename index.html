@@ -22,16 +22,6 @@
         text-decoration: none;
       }
 
-      .about {
-        font-size: 0.95rem;
-        padding: 20px calc((100vw - 1000px) / 2);
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
-        font-weight: 100;
-        line-height: 2;
-        letter-spacing: 0.3px;
-        text-align: justify;
-      }
-
       .groups {
         display: flex;
         list-style: none;
@@ -136,12 +126,7 @@
   </head>
   <body>
     <div id="app">
-      <div class="about">
-        <p>Sices is the Brazilian leader for solar photo-voltaic technology and owns products and services for automation, power efficiency, agriculture, trainings and financing.</p>
-        <p>I had an important support role setting up and developing everything that development and product teams needed while they were focused on building features.</p>
-        <p>In the began, I participated as a "technical coach" and developer experience engineer. I had an important support role setting up and developing everything that development and product teams needed while they were focused on building features. The proudest achievement were.</p>
-        <p style="text-align: right">Rafael Kendrik<br><small style="font-size: 0.65rem">Front-end Developer</small></p>
-      </div>
+      <About></About>
       <ul class="groups">
         <li v-for="linkGroup in linkGroups" :key="linkGroup.name" class="group">
           <h3 class="group-title">{{ linkGroup.name }}</h3>
