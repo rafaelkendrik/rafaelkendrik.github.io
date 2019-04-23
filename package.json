@@ -18,7 +18,7 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "compile": "./cli/rkendri-compile",
+    "compile": "./cli/rkendrik-compile",
     "build": "./cli/rkendrik-build",
     "deploy": "./cli/rkendrik-deploy",
     "start": "node server.js",
