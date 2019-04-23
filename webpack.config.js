@@ -15,6 +15,15 @@ var config = {
   module: {
     rules: [
       {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':data-src']
+          }
+        }
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader"
@@ -54,7 +63,7 @@ var config = {
   },
 
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.html', '.js'],
     alias: {
       vue: 'vue/dist/vue.js'
     }

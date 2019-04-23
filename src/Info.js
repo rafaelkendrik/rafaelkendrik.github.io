@@ -1,4 +1,4 @@
-import info from '../data/info.js'
+import info from '../data/info'
 
 const CURRENT_YEAR = (new Date()).getFullYear()
 

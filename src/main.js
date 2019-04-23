@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import linkGroups from '../data/link-groups.js'
+import linkGroups from '../data/link-groups'
 
-import Info from './Info.js'
-import Modal from './Modal.js'
+import About from './About'
+import Info from './Info'
+import Modal from './Modal'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,7 @@ new Vue({
   router,
 
   components: {
+    About,
     Info,
     Modal
   },
