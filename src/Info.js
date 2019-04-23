@@ -1,5 +1,7 @@
 import info from '../data/info.js'
 
+const CURRENT_YEAR = (new Date()).getFullYear()
+
 const style = {
   phone: `
     display: block;
@@ -40,7 +42,7 @@ export default {
     )
 
     const copy = infoItem({
-      content: info.copy,
+      content: `todos os direitos reservados | ${CURRENT_YEAR}`,
       attrs: {
         style: style.copy
       }
