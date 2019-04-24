@@ -1,4 +1,4 @@
-import selfLetterHTML from '../docs/self-letter'
+import coverLetterHTML from '../docs/cover-letter'
 import info from '../data/info'
 
 const style = {
@@ -49,11 +49,11 @@ export default {
       [name, h('br'), job]
     )
 
-    const selfLetter = h(
+    const coverLetter = h(
       'div',
       {
         domProps: {
-          innerHTML: selfLetterHTML
+          innerHTML: coverLetterHTML
         }
       }
     )
@@ -65,7 +65,7 @@ export default {
           style: style.container
         }
       },
-      [selfLetter, signature]
+      [coverLetter, signature]
     )
 
     return aboutContainer
