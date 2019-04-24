@@ -6,12 +6,26 @@ cd $RKENDRIK_SITE_PATH
 
 readonly BUILD_PATH=${RKENDRIK_SITE_PATH}/docs
 
-rm $BUILD_PATH -rf
-mkdir $BUILD_PATH
+[ ! -d $BUILD_PATH ] && {
+  mkdir $BUILD_PATH
+}
 
-$RKENDRIK_SITE_PATH/cli/rkendrik-compile
+declare -ra FILES=(
+  index.html
+)
 
-cp index.html $BUILD_PATH/index.html
-cp assets $BUILD_PATH/assets -r
+declare -ra DIRS=(
+  assets
+)
+
+for file in ${FILES[@]}; do
+  [ -f $BUILD_PATH/$file ] && rm $BUILD_PATH/$file
+  cp $RKENDRIK_SITE_PATH/$file $BUILD_PATH/$file
+done
+
+for dir in ${DIRS[@]}; do
+  [ -d $BUILD_PATH/$dir ] && rm $BUILD_PATH/$dir -rf
+  cp $RKENDRIK_SITE_PATH/$dir $BUILD_PATH/$dir -r
+done
 
 $RKENDRIK_SITE_PATH/node_modules/.bin/webpack

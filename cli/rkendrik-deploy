@@ -7,6 +7,7 @@ cd $RKENDRIK_SITE_PATH
 git checkout -b deploy
 git checkout deploy
 
+$RKENDRIK_SITE_PATH/cli/rkendrik-compile
 $RKENDRIK_SITE_PATH/cli/rkendrik-build
 
 git add docs -f && git commit -m "Github Pages Deploy $(date '+%Y-%m-%d %H:%M:%S')"
@@ -16,3 +17,4 @@ git checkout dev
 git branch -D deploy
 
 $RKENDRIK_SITE_PATH/cli/rkendrik-compile
+$RKENDRIK_SITE_PATH/cli/rkendrik-build
