@@ -1,4 +1,4 @@
-import coverLetterHTML from '../docs/cover-letter'
+import introduceHTML from '../docs/introduce'
 import info from '../data/info'
 
 const style = {
@@ -49,11 +49,11 @@ export default {
       [name, h('br'), job]
     )
 
-    const coverLetter = h(
+    const introduce = h(
       'div',
       {
         domProps: {
-          innerHTML: coverLetterHTML
+          innerHTML: introduceHTML
         }
       }
     )
@@ -65,7 +65,7 @@ export default {
           style: style.container
         }
       },
-      [coverLetter, signature]
+      [introduce, signature]
     )
 
     return aboutContainer
