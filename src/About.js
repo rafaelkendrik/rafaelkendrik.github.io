@@ -1,4 +1,4 @@
-import introduceHTML from '../docs/introduce'
+import introduceHTML from '../docs/introduce-en'
 import info from '../data/info'
 
 const style = {

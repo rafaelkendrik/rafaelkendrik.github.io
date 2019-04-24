@@ -11,7 +11,8 @@ readonly BUILD_PATH=${RKENDRIK_SITE_PATH}/docs
 }
 
 declare -ar MD_FILES=(
-  introduce
+  introduce-en
+  introduce-pt
 )
 
 compile_md() {
