@@ -136,8 +136,33 @@
         padding: 0 15px;
       }
 
-      .profile-picture {
+      .profile-caption {
+        font-family: Courier New;
+        letter-spacing: 7px;
+        font-size: 10px;
+        margin-top: 30px;
+        text-align: center;
+      }
 
+      .profile-caption-title {
+        font-weight: 100;
+        font-size: 2.5em;
+        margin: 0;
+        padding: 0;
+      }
+
+      .profile-caption-subtitle {
+        font-weight: 100;
+        font-size: 1.5em;
+        margin: 0;
+        padding: 0;
+      }
+
+      .profile-picture {
+        height: 230px;
+        width: 230px;
+        box-shadow: 4px 4px 1px #2a2a2acc;
+        border: 5px solid #292828;
       }
     </style>
   </head>
@@ -146,8 +171,8 @@
       <figure class="profile">
         <img class="profile-picture" src="assets/uploads/profile.jpg">
         <figcaption class="profile-caption">
-          <h1>Rafael Kendrik</h1>
-          <h2>Front-end Engineer</h2>
+          <h1 class="profile-caption-title">Rafael Kendrik</h1>
+          <h2 class="profile-caption-subtitle">Front-end Engineer</h2>
         </figcaption>
       </figure>
       <About></About>
