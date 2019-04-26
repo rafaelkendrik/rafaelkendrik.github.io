@@ -12,7 +12,8 @@ const style = {
     display: block;
     font-size: 10px;
     text-align: right;
-    padding: 20px calc((100vw - 1000px) / 2);
+    border: 15px solid transparent;
+    padding: 5px calc((100vw - 1030px) / 2);
     color: #999;
     background-color: #343434;
     width: 100%;
@@ -25,7 +26,8 @@ const style = {
     color: #f8f8f8;
     background-color: #444;
     width: 100%;
-    padding: 20px calc((100vw - 1000px) / 2);
+    border: 15px solid transparent;
+    padding: 5px calc((100vw - 1030px) / 2);
   `,
 
   container: `
