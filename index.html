@@ -168,7 +168,7 @@
   </head>
   <body>
     <div id="app">
-      <figure class="profile">
+      <figure class="profile" id="profile">
         <img class="profile-picture" src="assets/uploads/profile.jpg">
         <figcaption class="profile-caption">
           <h1 class="profile-caption-title">Rafael Kendrik</h1>
@@ -207,5 +207,23 @@
       </Modal>
     </div>
     <script src="main.js" type="application/javascript"></script>
+    <script src="assets/libs/cover.js"></script>
+    <script>
+      const container = document.querySelector('#profile')
+      Cover.insertBackground({
+        element: container,
+        width: container.clientWidth,
+        height: container.clientHeight,
+        speed: 10000,
+        scale: 40
+      })
+
+      const triangles = document.querySelectorAll('.triangles')
+      Array.prototype.forEach.call(triangles, triangle => {
+        triangle.style.position = 'absolute'
+        triangle.style.zIndex = '-1'
+        triangle.style.opacity = '0.5'
+      })
+    </script>
   </body>
 </html>
