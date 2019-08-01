@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly RKENDRIK_SITE_PATH=/home/dev-career/Projects/rafaelkendrik.github.io
+readonly RKENDRIK_SITE_PATH=$HOME/rafaelkendrik.github.io
 
 cd $RKENDRIK_SITE_PATH
 
