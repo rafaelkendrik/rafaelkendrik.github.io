@@ -1,0 +1,229 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Rafael Kendrik</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fcfcfc;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        outline: none !important;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .groups {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: space-between;
+        margin: 0;
+        padding: 20px 0 50px;
+        max-width: 1030px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .group {
+        flex: 1 1 calc(1030px / 4);
+        padding: 0 15px;
+      }
+
+      .group-title {
+        font-size: 11px;
+        font-weight: 100;
+        text-transform: uppercase;
+        padding: 7px 0;
+        margin: 0;
+        text-align: center;
+      }
+
+      .group-title:before {
+        content: '';
+        display: block;
+        border-top: 1px solid black;
+        width: 100%;
+        margin-bottom: 7px;
+      }
+
+      .group-links {
+        display: flex;
+        font-family: Courier New;
+        justify-content: space-evenly;
+        padding: 15px 0;
+        border-top: 1px solid black;
+        flex: 1 1 40px;
+        flex-wrap: wrap;
+      }
+
+      .group-link {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-width: 60px;
+        padding: 10px 5px;
+      }
+
+      .disabled {
+        cursor: default;
+      }
+
+      .group-link-title {
+        margin-top: 5px;
+        font-size: 0.7rem;
+      }
+
+      .group-link-image {
+        filter: grayscale(40%);
+        width: 32px;
+        height: 32px;
+        border-radius: 25%;
+      }
+
+      .modal-container {
+        position: fixed;
+        padding: 20px calc((100vw - 1030px) / 2) 60px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.85);
+      }
+
+      .modal {
+        outline: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .action-button {
+        height: 40px;
+        background-color: #444;
+        border: none;
+        outline: none;
+        color: #f8f8f8;
+        text-transform: uppercase;
+        margin: 10px 0 10px 10px;
+        padding: 0 20px;
+        cursor: pointer;
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0 15px;
+      }
+
+      .profile-caption {
+        font-family: Courier New;
+        letter-spacing: 7px;
+        font-size: 10px;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .profile-caption-title {
+        font-weight: 100;
+        font-size: 2.5em;
+        margin: 0;
+        padding: 0;
+      }
+
+      .profile-caption-subtitle {
+        font-weight: 100;
+        font-size: 1.5em;
+        margin: 0;
+        padding: 0;
+      }
+
+      .profile-picture {
+        height: 230px;
+        width: 230px;
+        box-shadow: 4px 4px 1px #2a2a2acc;
+        border: 5px solid #292828;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <figure class="profile" id="profile">
+        <img class="profile-picture" src="assets/uploads/profile.jpg">
+        <figcaption class="profile-caption">
+          <h1 class="profile-caption-title">Rafael Kendrik</h1>
+          <h2 class="profile-caption-subtitle">Front-end Engineer</h2>
+        </figcaption>
+      </figure>
+      <About></About>
+      <ul class="groups">
+        <li v-for="linkGroup in linkGroups" :key="linkGroup.name" class="group">
+          <h3 class="group-title">{{ linkGroup.name }}</h3>
+          <nav class="group-links">
+              <component
+                v-for="link in linkGroup.links"
+                :key="link.label"
+                v-bind="link"
+                :class="['group-link', { disabled: link.disabled }]"
+              >
+                <img class="group-link-image" :src="link.icon" :alt="link.label">
+                <span class="group-link-title">{{ link.label }}</span>
+              </component>
+            </template>
+          </nav>
+        </li>
+      </ul>
+      <Info></Info>
+      <Modal>
+        <iframe src="assets/uploads/curriculum.pdf" class="modal" frameboard="0" allowfullscreen></iframe>
+        <template slot="actions">
+          <a href="assets/uploads/curriculum.pdf" download target="_blank">
+            <button class="action-button">
+              <i style="mask: url(assets/icon/download.svg) no-repeat center; width: 16px; height: 16px; display: inline-block; background-color: #fff; margin-right: 5px;"></i>
+              download
+            </button>
+          </a>
+        </template>
+      </Modal>
+    </div>
+    <script src="main.js" type="application/javascript"></script>
+    <script src="assets/libs/cover.js"></script>
+    <script>
+      const container = document.querySelector('#profile')
+      Cover.insertBackground({
+        element: container,
+        width: container.clientWidth,
+        height: container.clientHeight,
+        speed: 10000,
+        scale: 40
+      })
+
+      const triangles = document.querySelectorAll('.triangles')
+      Array.prototype.forEach.call(triangles, triangle => {
+        triangle.style.position = 'absolute'
+        triangle.style.zIndex = '-1'
+        triangle.style.opacity = '0.5'
+      })
+    </script>
+  </body>
+</html>
